@@ -22,6 +22,29 @@ module "mod_linux_vm" {
     attach_existing_network_security_group = true
     existing_network_security_group_id = azurerm_network_security_group.jump-nsg.id
 
+
+  # This module support multiple Pre-Defined Linux and Windows Distributions.
+  # Check the README.md file for more pre-defined images for Ubuntu, Centos, RedHat.
+  # Please make sure to use gen2 images supported VM sizes if you use gen2 distributions
+  # Specify `disable_password_authentication = false` to create random admin password
+  # Specify a valid password with `admin_password` argument to use your own password 
+  # To generate SSH key pair, specify `generate_admin_ssh_key = true`
+  # To use existing key pair, specify `admin_ssh_key_data` to a valid SSH public key path.
+  # Specify instance_count = 1 to create a single instance, or specify a higher number to create multiple instances  
+  linux_distribution_name         = "ubuntu1804"
+  virtual_machine_size            = var.virtual_machine_size
+  admin_username                  = var.admin_username
+  admin_password                  = "P@ssw0rd1234"
+  aad_ssh_login_enabled           = false
+  generate_admin_ssh_key          = false
+  #admin_ssh_key_data = "./testkeys/public.pem"
+  instances_count                 = 1
+
+  # Proxymity placement group, Availability Set and adding Public IP to VM's are optional.
+  # remove these argument from module if you dont want to use it.  
+  enable_proximity_placement_group = false
+  enable_vm_availability_set       = true
+  enable_public_ip_address         = true 
     # Boot diagnostics to troubleshoot virtual machines, by default uses managed 
     # To use custom storage account, specify `storage_account_name` with a valid name
     # Passing a `null` value will utilize a Managed Storage Account to store Boot Diagnostics
