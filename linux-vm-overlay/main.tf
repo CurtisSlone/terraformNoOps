@@ -35,9 +35,9 @@ module "mod_linux_vm" {
   virtual_machine_size            = var.virtual_machine_size
   admin_username                  = var.admin_username
   admin_password                  = "P@ssw0rd1234"
-  aad_ssh_login_enabled           = false
+  aad_ssh_login_enabled           = true
   generate_admin_ssh_key          = false
-  #admin_ssh_key_data = "./testkeys/public.pem"
+  admin_ssh_key_data = "./testkeys/public.pem"
   instances_count                 = 1
 
   # Proxymity placement group, Availability Set and adding Public IP to VM's are optional.
