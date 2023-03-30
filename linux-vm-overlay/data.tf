@@ -12,7 +12,7 @@ data "azurenoopsutils_resource_name" "subnet" {
     name = var.workload_name
     resource_type = "azurerm_subnet"
     prefixes = [var.org_name, var.location]
-    suffices = compact([var.environment])
+    suffixes = compact([var.environment])
     use_slug = true
     clean_input = true
     separator = "-"
