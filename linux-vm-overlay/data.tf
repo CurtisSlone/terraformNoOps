@@ -8,7 +8,7 @@ data "azurenoopsutils_resource_name" "vnet" {
     separator = "-"
 }
 
-data "azurenoopsutils_resource_name" " subnet" {
+data "azurenoopsutils_resource_name" "subnet" {
     name = var.workload_name
     resource_type = "azurerm_subnet"
     prefixes = [var.org_name, var.location]
@@ -18,7 +18,7 @@ data "azurenoopsutils_resource_name" " subnet" {
     separator = "-"
 }
 
-data "azurenoopsutils_resource_name" " law" {
+data "azurenoopsutils_resource_name" "law" {
     name = var.workload_name
     resource_type = "azurerm_log_analytics_workspace"
     prefixes = [var.org_name, var.location]

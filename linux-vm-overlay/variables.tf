@@ -1,7 +1,7 @@
 variable "location" {
     description = "Azure region in which instance will be hosted"
     type = string
-    defult = "eastus"
+    default = "eastus"
 }
 
 variable "environment" { 
