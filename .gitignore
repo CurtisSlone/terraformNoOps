@@ -68,3 +68,5 @@ test/go.sum
 TestRecord/
 **/TestRecord.md.tmp
 
+# Terraform-azurerm-overlays-linux-virtualmachine
+terraform-azurerm-overlays-linux-virtualmachine
