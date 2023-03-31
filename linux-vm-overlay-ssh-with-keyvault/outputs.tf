@@ -3,7 +3,7 @@ output "resource_group" {
 }
 
 output "keyvault_name" {
-    value = ""
+    value = module.key_vault.key_vault_name
 }
 
 output "subnet" {
