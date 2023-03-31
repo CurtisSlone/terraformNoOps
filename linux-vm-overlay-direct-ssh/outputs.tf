@@ -1,4 +1,4 @@
-output "prublic_ip" {
+output "public_ip" {
   value = module.mod_linux_vm.linux_vm_public_ips
 }
 
