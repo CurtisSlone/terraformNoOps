@@ -1,5 +1,5 @@
 output "resource_group" {
-    value = ""
+    value = module.mod_rg.resource_group_name
 }
 
 output "keyvault_name" {
@@ -7,6 +7,5 @@ output "keyvault_name" {
 }
 
 output "subnet" {
-  value = ""
+  value = azurerm_subnet.jump-snet.name
 }
-
