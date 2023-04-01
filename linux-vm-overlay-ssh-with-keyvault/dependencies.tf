@@ -15,6 +15,7 @@ resource "azurerm_subnet" "jump-snet" {
     address_prefixes = ["10.0.1.0/24"]
 }
 
+
 # resource "azurerm_network_security_group" "jump-nsg" {
 #     name                = "vm-nsg"
 #     location            = var.location

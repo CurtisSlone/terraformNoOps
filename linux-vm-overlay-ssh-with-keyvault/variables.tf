@@ -17,7 +17,7 @@ variable "environment" {
 variable "workload_name" { 
     description = "Name of the workload_name"
     type = string
-    default = "test"
+    default = "ssh-keyvault-test"
 }
 
 variable "org_name" {
