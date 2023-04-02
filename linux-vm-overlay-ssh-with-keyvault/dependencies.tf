@@ -16,20 +16,20 @@ resource "azurerm_subnet" "jump-snet" {
 }
 
 
-# resource "azurerm_network_security_group" "jump-nsg" {
-#     name                = "vm-nsg"
-#     location            = var.location
-#     resource_group_name = module.mod_linux_vm.linux_vm_resource_group_name
+resource "azurerm_network_security_group" "jump-nsg" {
+    name                = "vm-nsg"
+    location            = var.location
+    resource_group_name = module.mod_linux_vm.linux_vm_resource_group_name
 
-#     security_rule {
-#         name                       = "allow-ssh"
-#         priority                   = 100
-#         direction                  = "Inbound"
-#         access                     = "Allow"
-#         protocol                   = "Tcp"
-#         source_port_range          = "*"
-#         destination_port_range     = "22"
-#         source_address_prefix      = "*"
-#         destination_address_prefix = "*"
-#     }
-# }
+    security_rule {
+        name                       = "allow-ssh"
+        priority                   = 100
+        direction                  = "Inbound"
+        access                     = "Allow"
+        protocol                   = "Tcp"
+        source_port_range          = "*"
+        destination_port_range     = "22"
+        source_address_prefix      = "*"
+        destination_address_prefix = "*"
+    }
+}
