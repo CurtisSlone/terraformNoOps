@@ -14,12 +14,6 @@ variable "environment" {
     default = "dev"
 }
 
-variable "workload_name" { 
-    description = "Name of the workload_name"
-    type = string
-    default = "test"
-}
-
 variable "org_name" {
     description = "Name of the organization"
     type = string
@@ -31,10 +25,6 @@ variable "tags" {
     type = map(string)
     default = {}
 }
-
-#
-# Resource Group Variables
-#
 
 variable "enable_resource_locks" {
     description = "(Optional) Enable resource locks, defaut is false. If true, resource locks will be created for the resource group and the storage account."
@@ -61,9 +51,26 @@ variable "use_location_short_name" {
 }
 
 
+
 #
-# Linux Variables
+# Hub Resource Group Variables
 #
+
+variable "hub_workload_name" { 
+    description = "Name of the workload_name"
+    type = string
+    default = "hub"
+}
+
+#
+# JumpBox Resource Group Variables
+#
+
+variable "jump_workload_name" { 
+    description = "Name of the workload_name"
+    type = string
+    default = "jump"
+}
 
 variable "admin_username" {
     description = "The username of the local administrator used for the Virtual Machine"
