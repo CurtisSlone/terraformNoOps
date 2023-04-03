@@ -68,7 +68,7 @@ resource "azurerm_virtual_network" "test_spoke_vnet" {
 
 resource "azurerm_subnet" "test_spoke_subnet" {
   name = "test-spoke-subnet"
-  resource_group_name = module.mod_bastion_rg.name
+  resource_group_name = module.mod_bastion_rg.resource_group_name
   virtual_network_name = azurerm_virtual_network.test_spoke_vnet
   address_prefixes = ["10.1.1.0/24"]
 }

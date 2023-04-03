@@ -8,11 +8,13 @@ resource "azurerm_key_vault" "hub-keyvault" {
     location = var.location
     resource_group_name = module.mod_bastion_rg.resource_group_name
     sku_name = "standard"
-    tenant_id = var.tenant_id
+    tenant_id = data.azurerm_client_config.current.tenant_id
+}
 
-    access_policy = {
-        tenant_id = var.tenant_id
-        object_id = var.object_id
+resource "azurerm_key_vault_access_policy" "keyvault-access-policy" {
+        key_vault_id = azurerm_key_vault.hub-keyvault.id
+        tenant_id = data.azurerm_client_config.current.tenant_id
+        object_id = data.azurerm_client_config.current.object_id
 
         key_permissions = [
             "create",
@@ -20,16 +22,15 @@ resource "azurerm_key_vault" "hub-keyvault" {
             "list",
             "delete",
             "update",
-            "import",
+            "import"
         ]
 
         secret_permissions = [
             "set",
             "get",
             "list",
-            "delete",
+            "delete"
         ]
-    }
 }
 
 resource "azurerm_key_vault_secret" "bastion_ssh_key_private" {

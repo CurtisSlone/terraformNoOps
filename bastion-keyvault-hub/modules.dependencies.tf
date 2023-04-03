@@ -12,7 +12,7 @@ module "mod_bastion_rg" {
     location = var.location
     org_name = var.org_name
     environment = var.environment
-    workload_name = var.hub_workload_name
+    workload_name = var.workload_name
     use_location_short_name = var.use_location_short_name
     custom_rg_name = var.custom_resource_group_name != null ? var.custom_resource_group_name : null
 
