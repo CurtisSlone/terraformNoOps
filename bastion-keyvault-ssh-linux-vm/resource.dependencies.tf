@@ -22,6 +22,25 @@ resource "azurerm_subnet" "hub-snet" {
     address_prefixes = ["10.1.1.0/24"]
 }
 
+resource "azurerm_public_ip" "bastion-public-ip" {
+  name = "bastion-pip"
+  location = var.location
+  resource_group_name = module.mod_bastion_rg.name
+  allocation_method = "Static"
+  sku = "Standard"
+}
+
+resource "azurerm_bastion_host" "hub-bastion" {
+  name = "hub-bastion"
+  location = var.location
+  resource_group_name = module.mod_bastion_rg.name
+  
+  ip_configuration {
+    name = "bastion"
+    subnet_id = azurerm_subnet.hub-snet.id
+    public_ip_address_id = azurerm_public_ip.bastion-public-ip.id
+  }
+}
 #
 #
 # Jump Workload resources
