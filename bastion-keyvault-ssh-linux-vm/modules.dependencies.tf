@@ -20,7 +20,7 @@ module "mod_jump_rg" {
     lock_level = var.lock_level
 
     //Tags
-    add_tags = var.add_tags
+    add_tags = var.tags
 }
 
 #
@@ -45,5 +45,5 @@ module "mod_bastion_rg" {
     lock_level = var.lock_level
 
     //Tags
-    add_tags = var.add_tags
+    add_tags = var.tags
 }

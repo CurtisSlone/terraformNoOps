@@ -7,8 +7,12 @@
 module "mod_linux_vm" {
     source = "../terraform-azurerm-overlays-linux-virtualmachine"
 
+  depends_on = [
+    module.mod_jump_rg
+  ]
     # Resource Group, location, VNet, subnet, and NSG details
     create_vm_resource_group = false
+    custom_vm_resource_group_name = module.mod_jump_rg.resource_group_name
     location = var.location
     environment = var.environment
     org_name = var.org_name

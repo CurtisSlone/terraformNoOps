@@ -18,12 +18,12 @@ data "azurenoopsutils_resource_name" "subnet" {
     separator = "-"
 }
 
-data "azurenoopsutils_resource_name" "law" {
-    name = var.workload_name
-    resource_type = "azurerm_log_analytics_workspace"
-    prefixes = [var.org_name, var.location]
-    suffixes = compact([var.environment])
-    use_slug = true
-    clean_input = true
-    separator = "-"
-}
+# data "azurenoopsutils_resource_name" "law" {
+#     name = var.workload_name
+#     resource_type = "azurerm_log_analytics_workspace"
+#     prefixes = [var.org_name, var.location]
+#     suffixes = compact([var.environment])
+#     use_slug = true
+#     clean_input = true
+#     separator = "-"
+# }
