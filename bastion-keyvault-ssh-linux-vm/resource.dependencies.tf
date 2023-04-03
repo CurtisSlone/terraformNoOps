@@ -8,7 +8,7 @@
 resource "azurerm_virtual_network" "hub-vnet" {
   name = "hub-vm-network"
   location = var.location
-  resource_group_name = module.mod_bastion_rg.name
+  resource_group_name = module.mod_bastion_rg.resource_group_name
   address_space = ["10.1.0.0/16"]
   tags = {
     environment = "test"
@@ -17,7 +17,7 @@ resource "azurerm_virtual_network" "hub-vnet" {
 
 resource "azurerm_subnet" "hub-snet" {
     name = "hub-vm-subnet"
-    resource_group_name = module.mod_bastion_rg.name
+    resource_group_name = module.mod_bastion_rg.resource_group_name
     virtual_network_name = azurerm_virtual_network.hub-vnet.name
     address_prefixes = ["10.1.1.0/24"]
 }
@@ -25,7 +25,7 @@ resource "azurerm_subnet" "hub-snet" {
 resource "azurerm_public_ip" "bastion-public-ip" {
   name = "bastion-pip"
   location = var.location
-  resource_group_name = module.mod_bastion_rg.name
+  resource_group_name = module.mod_bastion_rg.resource_group_name
   allocation_method = "Static"
   sku = "Standard"
 }
@@ -33,7 +33,7 @@ resource "azurerm_public_ip" "bastion-public-ip" {
 resource "azurerm_bastion_host" "hub-bastion" {
   name = "hub-bastion"
   location = var.location
-  resource_group_name = module.mod_bastion_rg.name
+  resource_group_name = module.mod_bastion_rg.resource_group_name
   
   ip_configuration {
     name = "bastion"
