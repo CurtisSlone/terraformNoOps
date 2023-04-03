@@ -4,7 +4,7 @@ resource "tls_private_key" "bastion_ssh_key" {
 }
 
 resource "azurerm_key_vault" "hub-keyvault" {
-    name = "hub-keyvault"
+    name = "hub-keyvault-testing-123"
     location = var.location
     resource_group_name = module.mod_bastion_rg.resource_group_name
     sku_name = "standard"
@@ -17,19 +17,19 @@ resource "azurerm_key_vault_access_policy" "keyvault-access-policy" {
         object_id = data.azurerm_client_config.current.object_id
 
         key_permissions = [
-            "create",
-            "get",
-            "list",
-            "delete",
-            "update",
-            "import"
+            "Create",
+            "Get",
+            "List",
+            "Delete",
+            "Update",
+            "Import"
         ]
 
         secret_permissions = [
-            "set",
-            "get",
-            "list",
-            "delete"
+            "Set",
+            "Get",
+            "List",
+            "Delete"
         ]
 }
 

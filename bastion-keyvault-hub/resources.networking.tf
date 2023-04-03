@@ -69,7 +69,7 @@ resource "azurerm_virtual_network" "test_spoke_vnet" {
 resource "azurerm_subnet" "test_spoke_subnet" {
   name = "test-spoke-subnet"
   resource_group_name = module.mod_bastion_rg.resource_group_name
-  virtual_network_name = azurerm_virtual_network.test_spoke_vnet
+  virtual_network_name = azurerm_virtual_network.test_spoke_vnet.name
   address_prefixes = ["10.1.1.0/24"]
 }
 
@@ -80,7 +80,7 @@ resource "azurerm_subnet" "test_spoke_subnet" {
 resource "azurerm_virtual_network_peering" "hub-to-spoke" {
   name = "hub-to-spoke"
   resource_group_name = module.mod_bastion_rg.resource_group_name
-  virtual_network_name = azurerm_virtual_network.hub-vnet
+  virtual_network_name = azurerm_virtual_network.hub-vnet.name
   remote_virtual_network_id = azurerm_virtual_network.test_spoke_vnet.id
 }
 
