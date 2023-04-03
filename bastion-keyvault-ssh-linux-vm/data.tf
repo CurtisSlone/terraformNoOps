@@ -1,5 +1,5 @@
 data "azurenoopsutils_resource_name" "vnet" {
-    name = var.workload_name
+    name = var.jump_workload_name
     resource_type = "azurerm_virtual_network"
     prefixes = [var.org_name, var.location]
     suffixes = compact([var.environment])
@@ -9,7 +9,7 @@ data "azurenoopsutils_resource_name" "vnet" {
 }
 
 data "azurenoopsutils_resource_name" "subnet" {
-    name = var.workload_name
+    name = var.jump_workload_name
     resource_type = "azurerm_subnet"
     prefixes = [var.org_name, var.location]
     suffixes = compact([var.environment])
