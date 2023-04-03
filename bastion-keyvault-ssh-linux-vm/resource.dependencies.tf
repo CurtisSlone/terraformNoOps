@@ -15,8 +15,15 @@ resource "azurerm_virtual_network" "hub-vnet" {
   }
 }
 
+
+# │ Error: The name of the Subnet for "ip_configuration.0.subnet_id" must be exactly 'AzureBastionSubnet' to be used for the Azure Bastion Host resource
+# │
+# │   with azurerm_bastion_host.hub-bastion,
+# │   on resource.dependencies.tf line 40, in resource "azurerm_bastion_host" "hub-bastion":
+# │   40:     subnet_id = azurerm_subnet.hub-snet.id
+
 resource "azurerm_subnet" "AzureBastionSubnet" {
-    name = "hub-vm-subnet"
+    name = "AzureBastionSubnet" // name must = "AzureBastionSubnet" or else error above occurs
     resource_group_name = module.mod_bastion_rg.resource_group_name
     virtual_network_name = azurerm_virtual_network.hub-vnet.name
     address_prefixes = ["10.1.1.0/24"]
@@ -37,13 +44,6 @@ resource "azurerm_bastion_host" "hub-bastion" {
   
   ip_configuration {
     name = "bastion"
-
-# │ Error: The name of the Subnet for "ip_configuration.0.subnet_id" must be exactly 'AzureBastionSubnet' to be used for the Azure Bastion Host resource
-# │
-# │   with azurerm_bastion_host.hub-bastion,
-# │   on resource.dependencies.tf line 40, in resource "azurerm_bastion_host" "hub-bastion":
-# │   40:     subnet_id = azurerm_subnet.hub-snet.id
-
     subnet_id = azurerm_subnet.AzureBastionSubnet.id
     public_ip_address_id = azurerm_public_ip.bastion-public-ip.id
   }

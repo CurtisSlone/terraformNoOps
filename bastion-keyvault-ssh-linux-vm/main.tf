@@ -48,7 +48,7 @@ module "mod_linux_vm" {
   # remove these argument from module if you dont want to use it.  
   enable_proximity_placement_group = false
   enable_vm_availability_set       = true
-  enable_public_ip_address         = true 
+  enable_public_ip_address         = false
     # Boot diagnostics to troubleshoot virtual machines, by default uses managed 
     # To use custom storage account, specify `storage_account_name` with a valid name
     # Passing a `null` value will utilize a Managed Storage Account to store Boot Diagnostics
