@@ -57,10 +57,36 @@ resource "azurerm_network_security_rule" "bastion_access" {
 }
 
 #
-# Hub Test Spoke Vnet
+# Hub Test Spoke Vnet & Subnet
 #
+resource "azurerm_virtual_network" "test_spoke_vnet" {
+  name = "test-spoke"
+  address_space = ["10.1.0.0/16"]
+  location = var.location
+  resource_group_name = module.mod_bastion_rg.resource_group_name
+}
+
+resource "azurerm_subnet" "test_spoke_subnet" {
+  name = "test-spoke-subnet"
+  resource_group_name = module.mod_bastion_rg.name
+  virtual_network_name = azurerm_virtual_network.test_spoke_vnet
+  address_prefixes = ["10.1.1.0/24"]
+}
 
 #
 # Hub VNET Peerings
 #
 
+resource "azurerm_virtual_network_peering" "hub-to-spoke" {
+  name = "hub-to-spoke"
+  resource_group_name = module.mod_bastion_rg.resource_group_name
+  virtual_network_name = azurerm_virtual_network.hub-vnet
+  remote_virtual_network_id = azurerm_virtual_network.test_spoke_vnet.id
+}
+
+resource "azurerm_virtual_network_peering" "spoke-to-hub" {
+  name = "spoke-to-hub"
+  resource_group_name = module.mod_bastion_rg.resource_group_name
+  virtual_network_name = azurerm_virtual_network.test_spoke_vnet.name
+  remote_virtual_network_id = azurerm_virtual_network.hub-vnet.id
+}
