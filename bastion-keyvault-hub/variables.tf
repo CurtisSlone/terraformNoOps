@@ -1,5 +1,5 @@
 #
-# Global Variables
+# Global variables
 #
 
 variable "location" {
@@ -50,7 +50,7 @@ variable "use_location_short_name" {
     default = false
 }
 
-variable "hub_workload_name" { 
+variable "workload_name" { 
     description = "Name of the workload"
     type = string
     default = "hub"
