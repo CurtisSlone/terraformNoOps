@@ -71,3 +71,4 @@ TestRecord/
 # Terraform Overlays
 terraform-azurerm-overlays-linux-virtualmachine
 terraform-azurerm-overlays-key-vault
+terraform-azurerm-overlays-bastion-vm
