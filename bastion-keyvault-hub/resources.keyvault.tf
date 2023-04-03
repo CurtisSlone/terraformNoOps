@@ -39,6 +39,9 @@ resource "azurerm_key_vault_access_policy" "keyvault-access-policy" {
 # │   on resources.keyvault.tf line 36, in resource "azurerm_key_vault_secret" "bastion_ssh_key_private":
 # │   36: resource "azurerm_key_vault_secret" "bastion_ssh_key_private" {
 resource "azurerm_key_vault_secret" "bastion_ssh_key_private" {
+    depends_on = [
+      tls_private_key.bastion_ssh_key
+    ]
   name = "bastion-ssh-key-private"
   value = tls_private_key.bastion_ssh_key.private_key_pem
   key_vault_id = azurerm_key_vault.hub-keyvault.id
