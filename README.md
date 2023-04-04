@@ -8,9 +8,9 @@ Gain practical experience with Terraform, Azure, and Github Actions. Additionall
 | Azure NoOps Overlay                               | Overlay Use Case                          |
 |:------------------------------------------------  | ----------------------------------------: |
 | terraform-azurerm-overlays-linux-virtualmachine   | Direct SSH                                |
-|                                                   | Bastion-Keyvault-SSH                      |
-|        N/A                                        | Bastion-Keyvault-hub                      |
-
+|       N/A                                         | Bastion-Keyvault-hub                      |
+|       N/A                                         | remote-state                              | 
+|       N/A                                         | remote-state-keyvault-spn                 |
 
 ## Caveats
 
