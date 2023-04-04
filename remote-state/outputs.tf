@@ -11,7 +11,7 @@ output "container_name" {
 }
 
 output "storage_account_primary_access_key" {
-  value     = ""
+  value     = azurerm_storage_account.network-artifacts-storage.primary_access_key
   sensitive = true
 }
 

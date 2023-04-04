@@ -1,7 +1,3 @@
-resource "tls_private_key" "remote_ssh_key" {
-  algorithm = "RSA"
-  rsa_bits = 4096
-}
 
 resource "azurerm_key_vault" "remote-backend-keyvault" {
     name = "${lower(var.org_name)}tfmgtkv${random_string.tf-name.result}"
@@ -17,27 +13,19 @@ resource "azurerm_key_vault_access_policy" "keyvault-access-policy" {
         object_id = data.azurerm_client_config.current.object_id
 
         key_permissions = [
-            "Create",
             "Get",
-            "List",
-            "Delete",
-            "Update",
-            "Import"
+            "List"
         ]
 
         secret_permissions = [
             "Set",
             "Get",
-            "List",
-            "Delete"
+            "List"
         ]
 }
 
-resource "azurerm_key_vault_secret" "_ssh_key_private" {
-    depends_on = [
-      tls_private_key.remote_ssh_key
-    ]
-  name = "remote-ssh-key-private"
-  value = tls_private_key.remote_ssh_key.private_key_pem
+resource "azurerm_key_vault_secret" "storage_account_key" {
+  name = "remote-secret"
+  value = azurerm_storage_account.network-artifacts-storage.primary_access_key
   key_vault_id = azurerm_key_vault.remote-backend-keyvault.id
 }
