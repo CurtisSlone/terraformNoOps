@@ -10,5 +10,5 @@ resource "azuread_application" "kv-app" {
 
 resource "azuread_group_member" "aad-group-member" {
     group_object_id = azuread_group.remote-state-kv-group.id
-    member_object_id = azuread_application.kv-app.ids
+    member_object_id = azuread_application.kv-app.id
 }
