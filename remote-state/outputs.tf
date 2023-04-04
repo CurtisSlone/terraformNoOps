@@ -14,3 +14,7 @@ output "storage_account_primary_access_key" {
   value     = ""
   sensitive = true
 }
+
+output "objectID" {
+  value = data.azurerm_client_config.current.object_id
+}

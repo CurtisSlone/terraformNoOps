@@ -6,7 +6,7 @@ resource "azurerm_storage_account" "network-artifacts-storage" {
   depends_on = [
     module.mod_network_artifacts_rg
   ]
-  name                     = "${lower(var.org_name)}tfmgtprod${random_string.tf-name.result}"
+  name                     = "${lower(var.org_name)}tfmgtdev${random_string.tf-name.result}"
   resource_group_name      = module.mod_network_artifacts_rg.resource_group_name
   location                 = var.location
   account_tier             = "Standard"
