@@ -10,7 +10,7 @@ resource "azurerm_key_vault" "remote-backend-keyvault" {
 resource "azurerm_key_vault_access_policy" "keyvault-access-policy" {
         key_vault_id = azurerm_key_vault.remote-backend-keyvault.id
         tenant_id = data.azurerm_client_config.current.tenant_id
-        object_id = data.azurerm_client_config.current.object_id
+        object_id = azuread_group.remote-state-kv-group.id
 
         key_permissions = [
             "Get",
