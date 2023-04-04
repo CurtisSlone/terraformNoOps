@@ -19,4 +19,10 @@ before wiring the backend.
 The storage account & containers must be deployed first.
 
 ### Caveats
-I've created two containers within the storage account. One for development, the other for production. I'm currently searching for a way to create logic to select which backend config I want to use
+I've created two containers within the storage account. One for development, the other for production. I'm currently searching for a way to create logic to select which backend config I want to use.
+
+## Current Error
+
+Initializing the backend...
+╷
+│ Error: Either an Access Key / SAS Token or the Resource Group for the Storage Account must be specified - or Azure AD Authentication must be enabled
