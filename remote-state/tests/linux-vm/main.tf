@@ -5,7 +5,7 @@
 #
 #
 module "mod_linux_vm" {
-    source = "../terraform-azurerm-overlays-linux-virtualmachine"
+    source = "../../../terraform-azurerm-overlays-linux-virtualmachine"
 
     # Resource Group, location, VNet, subnet, and NSG details
     create_vm_resource_group = true

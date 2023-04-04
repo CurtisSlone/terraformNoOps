@@ -19,4 +19,4 @@ before wiring the backend.
 The storage account & containers must be deployed first.
 
 ### Caveats
-I have two versions files. One for production, the other for development. This is because I want to experiment with tags in githib to attempt to automate how the terraform code is deployed
+I've created two containers within the storage account. One for development, the other for production. I'm currently searching for a way to create logic to select which backend config I want to use
