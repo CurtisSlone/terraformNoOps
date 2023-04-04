@@ -10,7 +10,11 @@ terraform {
         version = "~> 1.0.4"
     }
   }
-  
+  backend "azurerm" {
+    storage_account_name = azurerm_storage_account.tfstatesa.name
+    container_name = azurerm_storage_container.tfdevsc.name
+    key = "dev.terraform.tfstate"
+  }
 }
 
 provider "azurerm" {
