@@ -2,11 +2,11 @@
 # Network Artifacts Storage Account
 #
 
-resource "azurerm_storage_account" "network-artifacts-storage" {
+resource "azurerm_storage_account" "tfdevsa" {
   depends_on = [
     module.mod_network_artifacts_rg
   ]
-  name                     = "${lower(var.org_name)}tfmgtdev${random_string.tf-name.result}"
+  name                     = "${lower(var.org_name)}tfdevsa${random_string.tf-name.result}"
   resource_group_name      = module.mod_network_artifacts_rg.resource_group_name
   location                 = var.location
   account_tier             = "Standard"
@@ -22,11 +22,11 @@ resource "azurerm_storage_account" "network-artifacts-storage" {
 # Network Artifacts Storage Container
 #
 
-resource "azurerm_storage_container" "network-artifacts-storage-container" {
+resource "azurerm_storage_container" "tfremdevsc" {
   depends_on = [
-    azurerm_storage_account.network-artifacts-storage
+    azurerm_storage_account.tfdevsa
   ]
-  name                  = "vhds"
-  storage_account_name  = azurerm_storage_account.network-artifacts-storage.name
+  name                  = "${lower(var.org_name)}tfdevsc${random_string.tf-name.result}"
+  storage_account_name  = azurerm_storage_account.tfdevsa.name
   container_access_type = "private"
 }
