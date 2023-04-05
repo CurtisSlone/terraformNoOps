@@ -24,13 +24,19 @@ before wiring the backend.
 
 The storage account & containers must be deployed first.
 
+The storage account and container names must be deployed in whatever terraform code uses the remote backend
+
 ### Caveats
 I've created two containers within the storage account. One for development, the other for production. I'm currently searching for a way to create logic to select which backend config I want to use.
 
-## Current Error
+## Current Errors
 
+#### 1
 Initializing the backend...
 ╷
 │ Error: Either an Access Key / SAS Token or the Resource Group for the Storage Account must be specified - or Azure AD Authentication must be enabled
 
-The storage container requires an access key. It is best practice to 
+The storage container requires an access key. It is best practice to not expose this access key in code. In the exaple
+
+#### 2
+Running ```hcl terraform init ``` stays in the "Initializing the backend" state

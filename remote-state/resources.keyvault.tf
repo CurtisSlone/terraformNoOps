@@ -14,19 +14,24 @@ resource "azurerm_key_vault" "tfstatekv" {
     key_permissions = [
         "Get",
         "List",
-        "Create"
+        "Create",
+        "Delete",
+        "Purge"
     ]
     secret_permissions = [
         "Get",
         "List",
-        "Set"
+        "Set",
+        "Delete"
 
         ]
 
         storage_permissions = [
         "Get",
         "GetSAS",
-        "SetSAS"
+        "SetSAS",
+        "Delete",
+        "Purge"
 
         ]
   }
