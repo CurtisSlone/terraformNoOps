@@ -17,3 +17,12 @@ output "dev_storage_container" {
 output "prod_storage_container" {
   value = azurerm_storage_container.tfremprodsc.name
 }
+
+output "access_key" {
+  value = azurerm_storage_account.tfstatesa.primary_access_key
+  sensitive = true
+}
+
+output "object_id" {
+  value = data.azurerm_client_config.current.object_id
+}

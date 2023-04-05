@@ -10,7 +10,7 @@ Gain practical experience with Terraform, Azure, and Github Actions. Additionall
 | terraform-azurerm-overlays-linux-virtualmachine   | Direct SSH                                |
 |       N/A                                         | Bastion-Keyvault-hub                      |
 |       N/A                                         | remote-state                              | 
-|       N/A                                         | remote-state-keyvault-spn                 |
+
 
 ## Caveats
 
