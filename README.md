@@ -11,7 +11,7 @@ Gain practical experience with Terraform, Azure, and Github Actions. Additionall
 |       N/A                                         | Bastion-Keyvault-hub                      |
 |       N/A                                         | remote-state                              | 
 | terraform-azurerm-overlays-management-groups      | management-groups                         |
-
+| terraform-azuread-overlays-service-principal      | spn                                       |
 
 ## Caveats
 

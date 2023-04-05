@@ -73,6 +73,7 @@ terraform-azurerm-overlays-linux-virtualmachine
 terraform-azurerm-overlays-key-vault
 terraform-azurerm-overlays-bastion-vm
 terraform-azurerm-overlays-management-groups
+terraform-azuread-overlays-service-principal
 
 # Secrets files
 **/variables.secrets.tf
