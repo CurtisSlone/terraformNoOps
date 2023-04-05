@@ -7,7 +7,7 @@ module "mod_service_principal" {
 
     service_principal_assignments = [
         {
-            scope = "/subscriptions/23940602-cfb8-4eb0-9099-404c608da4c2"
+            scope = "/subscriptions/"
             role_definition_name = "Contributor"
         }
     ]
