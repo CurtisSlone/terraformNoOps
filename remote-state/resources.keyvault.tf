@@ -22,7 +22,9 @@ resource "azurerm_key_vault" "tfstatekv" {
         "Get",
         "List",
         "Set",
-        "Delete"
+        "Delete",
+        "Purge",
+        "Recover"
 
         ]
 

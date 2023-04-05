@@ -38,5 +38,11 @@ Initializing the backend...
 
 The storage container requires an access key. It is best practice to not expose this access key in code. In the exaple
 
+##### FIX:
+Enter access_key value into tests azurerm backend
+
 #### 2
 Running ```hcl terraform init ``` stays in the "Initializing the backend" state
+
+##### FIX:
+Enter correct storage account, storage container, and access key information
