@@ -72,6 +72,7 @@ TestRecord/
 terraform-azurerm-overlays-linux-virtualmachine
 terraform-azurerm-overlays-key-vault
 terraform-azurerm-overlays-bastion-vm
+terraform-azurerm-overlays-management-groups
 
 # Secrets files
 **/variables.secrets.tf
