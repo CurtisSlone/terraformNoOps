@@ -25,6 +25,9 @@ resource "azurerm_key_vault" "tfstatekv" {
 
         storage_permissions = [
         "Get",
+        "GetSAS",
+        "SetSAS"
+
         ]
   }
 }
