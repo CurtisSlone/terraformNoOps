@@ -19,6 +19,9 @@ The resource group, storage accounts and storage containers must be deployed bef
 
 ### Steps To Success
 
+#### 1:
+Create storage accounts, storage, containers, and key vault to support remote state
+
 ### Caveats
 
 ## Current Errors
