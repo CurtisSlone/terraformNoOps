@@ -14,10 +14,6 @@ output "dev_storage_container" {
   value = azurerm_storage_container.tfremdevsc.name
 }
 
-output "prod_storage_container" {
-  value = azurerm_storage_container.tfremprodsc.name
-}
-
 output "access_key" {
   value = azurerm_storage_account.tfstatesa.primary_access_key
   sensitive = true

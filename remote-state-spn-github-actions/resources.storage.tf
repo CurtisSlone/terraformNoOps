@@ -30,16 +30,3 @@ resource "azurerm_storage_container" "tfremdevsc" {
   storage_account_name  = azurerm_storage_account.tfstatesa.name
   container_access_type = "private"
 }
-
-#
-# PROD TFSTATE Storage Container
-#
-
-resource "azurerm_storage_container" "tfremprodsc" {
-  depends_on = [
-    azurerm_storage_account.tfstatesa
-  ]
-  name                  = "${lower(var.org_name)}tfprodsc${random_string.tf-name.result}"
-  storage_account_name  = azurerm_storage_account.tfstatesa.name
-  container_access_type = "private"
-}
