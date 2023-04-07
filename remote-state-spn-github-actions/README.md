@@ -31,12 +31,28 @@ From project root directory run:
 terraform init
 terraform plan
 terraform apply --auto-approve
+terraform output -raw client_secret
 ```
 
 #### 3:
 
 Add relevant secrets to github repo. Create Github workflows.
 
+#### 4:
+
+Update versions file in example directory.
+
+#### 5:
+
+run the following commands
+```
+git add .
+git commit -m "<message>"
+git push -u <remote-branch> <local-branch>
+
+```
+
+Watch the git action run!
 ### Caveats
 This project is dependent upon an application registration with permissions to the relevant subscription AND keyvault
 
