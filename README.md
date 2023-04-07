@@ -12,6 +12,7 @@ Gain practical experience with Terraform, Azure, and Github Actions. Additionall
 |       N/A                                         | remote-state                              | 
 | terraform-azurerm-overlays-management-groups      | management-groups                         |
 | terraform-azuread-overlays-service-principal      | spn                                       |
+| terraform-azuread-overlays-resource-groups        | remote-state-spn-github-actions           |
 
 ## Caveats
 
