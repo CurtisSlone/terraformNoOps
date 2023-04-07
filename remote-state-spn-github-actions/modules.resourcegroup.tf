@@ -3,6 +3,9 @@
 #
 
 module "mod_network_artifacts_rg" {
+    depends_on = [
+      azurerm_role_assignment.current
+    ]
     source = "azurenoops/overlays-resource-group/azurerm"
     version = "~> 1.0"
 
